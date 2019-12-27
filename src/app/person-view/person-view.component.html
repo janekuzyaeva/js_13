@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="d-flex flex-row">
+        <div class="row m-2">
+            <div class="m-4">{{inPerson.id}}</div>
+            <div class="m-4">{{inPerson.firstname}}</div>
+            <div class="m-4">{{inPerson.lastname}}</div> 
+            <div class="m-4">{{inPerson.phone}} </div>
+        </div>
+        <div class=" m-4">
+            <button class="btn btn-danger" (click)="onDeletePerson()"> Delete</button>
+        </div>
+        <div class=" m-4">
+            <button class="btn btn-dark" (click)="editSwitch()">Edit</button>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column m-2" *ngIf="edit">
+      <form [formGroup]="editForm">
+        <div class="row mt-2" *ngIf="edit">
+          <div class="m-4">
+            <input type="text" formControlName="firstname" class="form-control" placeholder="First Name">
+          </div>
+          <div class="m-4">
+            <input type="text" formControlName="lastname" class="form-control" placeholder="Second Name">
+          </div>
+          <div class="m-4">
+            <input type="text" mask="(000) 000-0000" prefix="8" [showMaskTyped]="true" formControlName="phone" class="form-control">
+          </div>
+          <div class="m-4">
+            <button [disabled]="editForm.invalid" class="btn btn-access" (click)="onEditPerson()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  

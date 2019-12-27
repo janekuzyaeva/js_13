@@ -1,0 +1,21 @@
+ <div class="container">
+    <form [formGroup]="addForm">
+      <div class="m-1">
+        <div class="m-4">
+          <input type="text" formControlName="firstname" class="form-control" placeholder="Jane">
+        </div>
+        <div class="m-4">
+  
+          <input type="text" formControlName="lastname" class="form-control" placeholder="Kuzyaeva">
+        </div>
+        <div class="m-4">
+          <input type="text" mask="(000) 000-0000" prefix="8" [showMaskTyped]="true" formControlName="phone" class="form-control" placeholder="Number">
+        </div>
+  
+        <div class="m-4">
+          <button [disabled]="addForm.invalid" class="btn btn-success" (click)="onAddPerson()">Add</button>
+        </div>
+      </div>
+    </form>
+    <br><br>
+  </div>
